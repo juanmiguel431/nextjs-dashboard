@@ -10,6 +10,7 @@ import {
 import Link from 'next/link';
 import { Button } from '@/app/ui/button';
 import { updateInvoice } from '@/app/lib/actions';
+import { useCallback } from 'react';
 
 type Props = {
   invoice: InvoiceForm;
@@ -17,7 +18,7 @@ type Props = {
 }
 
 export default function EditInvoiceForm({ invoice, customers, }: Props) {
-  const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
+  const updateInvoiceWithId = useCallback(updateInvoice.bind(null, invoice.id), [invoice.id]);
 
   return (
     <form action={updateInvoiceWithId}>
