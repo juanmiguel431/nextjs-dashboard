@@ -18,7 +18,9 @@ type Props = {
 }
 
 export default function EditInvoiceForm({ invoice, customers, }: Props) {
-  const updateInvoiceWithId = useCallback(updateInvoice.bind(null, invoice.id), [invoice.id]);
+  const updateInvoiceWithId = useCallback(async (formData: FormData) => {
+    await updateInvoice(invoice.id, formData);
+  }, [invoice.id])
 
   return (
     <form action={updateInvoiceWithId}>
