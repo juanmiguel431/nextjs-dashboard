@@ -5,13 +5,14 @@ import { CreateInvoice } from '@/app/ui/invoices/buttons';
 import { lusitana } from '@/app/ui/fonts';
 import React, { Suspense } from 'react';
 import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
-import { NextPage } from 'next';
+import { NextPage, Metadata } from 'next';
 import { fetchInvoicesPages } from '@/app/lib/data';
 
-import { Metadata } from 'next';
-
 export const metadata: Metadata = {
-  title: 'Invoices',
+  title: {
+    template: '%s | Invoices',
+    default: 'Invoices',
+  },
 };
 
 type Props = {
