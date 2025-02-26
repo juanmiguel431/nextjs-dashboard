@@ -8,6 +8,12 @@ import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
 import { NextPage } from 'next';
 import { fetchInvoicesPages } from '@/app/lib/data';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Invoices | Acme Dashboard',
+};
+
 type Props = {
   searchParams?: Promise<{
     query?: string;
